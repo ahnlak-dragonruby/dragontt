@@ -1,0 +1,6 @@
+devid=ahnlak
+devtitle=ahnlak
+gameid=DragonTT
+gametitle=My Game
+version=0.1
+icon=metadata/icon.png

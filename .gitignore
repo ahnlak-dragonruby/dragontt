@@ -1,5 +1,6 @@
 logs/
 tmp/
+exceptions/
 dragonruby.exe
 scores.txt
 console_history.txt

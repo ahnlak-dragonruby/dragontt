@@ -114,16 +114,19 @@ class Tetronimo
     end
 
     # Shift one column to the left (negative) or the right (positive)
-    def shift direction
+    def shift? direction
 
         if clear? @grid_col + direction, @grid_row, @rotation
             @grid_col += direction
+            return true
         end
+
+        return false
 
     end
 
     # Spin the piece in place
-    def rotate clockwise
+    def rotate? clockwise
 
         if clockwise
             newrot = ( @rotation + 1 ) % 4
@@ -133,7 +136,10 @@ class Tetronimo
 
         if clear? @grid_col, @grid_row, newrot
             @rotation = newrot
+            return true
         end
+
+        return false
 
     end
 

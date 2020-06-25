@@ -25,6 +25,7 @@ class Game
         @board = Array.new( BOARD_HEIGHT ) { Array.new( BOARD_WIDTH ) { :none } }
         @board_origin_x = $gtk.args.grid.center_x - ( ( BOARD_WIDTH * 32 ) / 2 )
         @board_origin_y = 32
+        @sound = nil
 
     end
 
@@ -87,6 +88,7 @@ class Game
             if !spaces
 
                 @score += 10
+                @sound = "clearline"
                 (row+1..BOARD_HEIGHT-1).each do |above|
                     (0..BOARD_WIDTH-1).each do |column| 
                         @board[above-1][column] = @board[above][column]
@@ -103,22 +105,31 @@ class Game
 
         # Check for user input before anything
         if inputs.keyboard.key_down.up || inputs.keyboard.key_down.w
-            @current.rotate true
+            if @current.rotate? true
+                @sound = "spin"
+            end
         end
 
         if inputs.keyboard.key_down.down || inputs.keyboard.key_down.s
-            @current.rotate false
+            if @current.rotate? false
+                @sound = "spin"
+            end
         end
 
         if inputs.keyboard.key_down.left || inputs.keyboard.key_down.a
-            @current.shift -1
+            if @current.shift? -1
+                @sound = "move"
+            end
         end
 
         if inputs.keyboard.key_down.right || inputs.keyboard.key_down.d
-            @current.shift 1
+            if @current.shift? 1
+                @sound = "move"
+            end
         end
 
         if inputs.keyboard.key_down.space
+            @sound = "drop"
             @current.dropping = true
         end
 
@@ -162,6 +173,7 @@ class Game
 
             # If any element of the Tetronimo is off the board, it's game over
             if brick[0] >= BOARD_HEIGHT
+                @sound = "lose"
                 @over = true
                 return
             end
@@ -183,6 +195,7 @@ class Game
 
         # Lastly, do a quick check - if this new piece isn't clear, it's game over
         if !@current.clear?
+            @sound = "lose"
             @over = true
         end
 
@@ -190,6 +203,12 @@ class Game
 
     # Renders the current state of the world, shouldn't do any updating though!
     def render outputs
+
+        # Play any sound that's been queued up
+        if @sound != nil
+            outputs.sounds << "sounds/#{ @sound }.wav"
+            @sound = nil
+        end
 
         # Obviously if we're not even running there isn't much to do
         if !@running || @over

@@ -20,5 +20,10 @@ Scoring in TT is wonderfully rudimentary. You get points for each piece you drop
 on the piece) and points for clearing a line (10 points per line). There is no bonus for dropping. No bonus for clearing
 multiple lines at once. 
 
+Building
+--------
 
+You will obviously need to have a copy of DragonRuby to be able to run this; on Windows, it should just be a case of 
+dropping the dragonruby.exe executable into the same directory as this README and running it without arguments. I imagine 
+it's a similar job on Linux / MacOS.
 

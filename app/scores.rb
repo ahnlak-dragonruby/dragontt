@@ -2,7 +2,9 @@
 #
 # Handles the loading, saving and rendering of the high score tables.
 # There is code in here about which I am ... not proud.
-
+#
+# Copyright (c) 2020 Pete Favelle <dragonruby@ahnlak.com>
+# Licensed under the MIT license; see LICENSE for more details
 
 
 # Loads up the high score table, and renders it down the right hand side.

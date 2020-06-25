@@ -1,5 +1,8 @@
 # DragonTT - a DragonRuby GTK port of the most excellent Tetris for Terminals (https://github.com/MikeTaylor/tt)
 #            which I spent most of my University career playing (when I wasn't playing Nethack).
+#
+# Copyright (c) 2020 Pete Favelle <dragonruby@ahnlak.com>
+# Licensed under the MIT license; see LICENSE for more details
 
 $gtk.require 'app/tetronimo.rb'
 $gtk.require 'app/game.rb'

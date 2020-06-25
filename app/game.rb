@@ -2,6 +2,9 @@
 #
 # The Game object handles the running of the actual game, in two fundamental
 # functions - update and render. Keeping these logically divorced feels... right
+#
+# Copyright (c) 2020 Pete Favelle <dragonruby@ahnlak.com>
+# Licensed under the MIT license; see LICENSE for more details
 
 class Game
 

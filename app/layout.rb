@@ -2,6 +2,9 @@
 #
 # Sets out the basic static elements of the display; kept here just to avoid
 # cluttering up main.rb too much
+#
+# Copyright (c) 2020 Pete Favelle <dragonruby@ahnlak.com>
+# Licensed under the MIT license; see LICENSE for more details
 
 def layout grid, outputs
 

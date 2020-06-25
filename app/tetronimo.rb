@@ -3,6 +3,9 @@
 # This defines a class to handle the definition and rendering of individual pieces.
 # Apologies in advance to anyone who actually knows Ruby for the terrible programming
 # techniques I'm about to demonstrate.
+#
+# Copyright (c) 2020 Pete Favelle <dragonruby@ahnlak.com>
+# Licensed under the MIT license; see LICENSE for more details
 
 class Tetronimo
 

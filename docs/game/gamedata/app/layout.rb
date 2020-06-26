@@ -8,6 +8,14 @@
 
 def layout grid, outputs
 
+  # Add a version label in the bottom left
+  outputs.static_labels << {
+    x: 20,
+    y: 30,
+    text: "Version V#{$gtk.args.state.version}",
+    size_enum: -2,
+  }
+
   # Add the static background elements to the world
   outputs.static_sprites << { 
     x: grid.center_x - ( 384 /2 ),

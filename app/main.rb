@@ -34,6 +34,9 @@ def tick args
     init args
   end
 
+  # Set the background properly to white - seem to have to do this every frame
+  args.outputs.background_color = [ 255, 255, 255, 255 ]
+
   # Now, if the game is running we can update it
   if args.state.game.running 
 

@@ -1,6 +1,6 @@
 devid=ahnlak
 devtitle=ahnlak
 gameid=DragonTT
-gametitle=My Game
-version=0.1
+gametitle=Dragon Tetris
+version=1.0
 icon=metadata/icon.png

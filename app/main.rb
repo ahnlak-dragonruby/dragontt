@@ -8,6 +8,7 @@ $gtk.require 'app/tetronimo.rb'
 $gtk.require 'app/game.rb'
 $gtk.require 'app/layout.rb'
 $gtk.require 'app/scores.rb'
+$gtk.require 'app/piece.rb'
 
 # Initialiser; called at launch, this is where we set up everything for the initial state
 def init args
@@ -21,6 +22,7 @@ def init args
 
   # And set some state defaults
   args.state.player_name = 'Player'
+  args.state.pieces = []
 
 end
 
@@ -116,6 +118,20 @@ def tick args
       b: 64,
       a: 64 + ( 128 - ( 4 * ( args.state.tick_count % 64 ) ) ).abs
     }
+
+    # Every second, see if we should spawn more pieces drifting down
+    if ( args.tick_count % 60 ) == 0 && args.state.pieces.length < 10
+      args.state.pieces << Piece.new()
+    end
+
+    # Work through all those pieces, dropping, spinning and rendering
+    args.state.pieces.each do |piece|
+      piece.update
+      args.outputs.primitives << piece.sprite
+    end
+
+    # Remove any that have fallen off the bottom
+    args.state.pieces.reject! { |piece| piece.y < 0 }
 
     # And if they press it, start the game
     if args.inputs.keyboard.key_down.space

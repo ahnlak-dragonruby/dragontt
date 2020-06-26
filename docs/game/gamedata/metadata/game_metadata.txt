@@ -1,0 +1,6 @@
+devid=ahnlak
+devtitle=ahnlak
+gameid=DragonTT
+gametitle=Dragon Tetris
+version=1.0
+icon=metadata/icon.png

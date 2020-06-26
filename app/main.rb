@@ -13,6 +13,9 @@ $gtk.require 'app/piece.rb'
 # Initialiser; called at launch, this is where we set up everything for the initial state
 def init args
 
+  # Try and keep track of a release version!
+  args.state.version = "1.0.20200626"
+
   # Create a Game object which will hold everything about the game.
   args.state.game = Game.new()
 

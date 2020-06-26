@@ -10,4 +10,4 @@ So, that answers the question of how good DragonRuby is!
 
 
 The source is available her on GitHub; you can find a playable HTML version [right here](game/index.html)
-and executables for other platforms over on itch.io
+and executables for other platforms over on [itch.io](https://ahnlak.itch.io/dragontt)
